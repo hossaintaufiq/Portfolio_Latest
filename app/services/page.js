@@ -13,7 +13,7 @@ const offerings = [
     deliverables: [
       "Responsive UI/UX with React or Next.js",
       "Backend APIs with Django, Node.js, or Express",
-      "Database integration (MongoDB, PostgreSQL, Firebase)",
+      "Database integration (MongoDB, PostgreSQL, MySQL, Firebase)",
       "Deployment & CI/CD setup",
     ],
   },
