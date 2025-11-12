@@ -6,3 +6,179 @@
     font-family: 'Poppins', sans-serif;
   }
 }
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, 20px) scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 12s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 18s ease-in-out infinite;
+}
+@keyframes spin-slow {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rotate-ring {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1.05); }
+}
+
+@keyframes rotate-ring-rev {
+  0% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+  100% { transform: translate(-50%, -50%) rotate(0deg) scale(1.05); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+@keyframes spin-slow {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rotate-ring {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1.05); }
+}
+
+@keyframes rotate-ring-rev {
+  0% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+  100% { transform: translate(-50%, -50%) rotate(0deg) scale(1.05); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
+.animate-rotate-ring {
+  animation: rotate-ring 80s linear infinite;
+}
+.animate-rotate-ring-rev {
+  animation: rotate-ring-rev 60s linear infinite;
+}
+/* --- Space background base --- */
+.space-bg {
+  background: radial-gradient(circle at 20% 10%, rgba(8,12,20,0.4) 0%, rgba(0,0,0,1) 40%);
+}
+
+/* central glowing black-hole core */
+.space-bg__core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 840px;
+  height: 840px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(55,60,100,0.45) 0%,
+    rgba(10,10,16,0.9) 55%,
+    rgba(0,0,0,1) 85%);
+  filter: blur(62px);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: core-slow-rotate 40s linear infinite;
+}
+
+/* rings (event horizon) */
+.space-bg__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: blur(2px);
+}
+
+/* outer ring */
+.ring--outer {
+  width: 920px;
+  height: 920px;
+  border: 1px solid rgba(70, 200, 255, 0.06);
+  animation: ring-rotate 80s linear infinite;
+}
+
+/* inner ring */
+.ring--inner {
+  width: 700px;
+  height: 700px;
+  border: 1px solid rgba(140, 140, 255, 0.06);
+  animation: ring-rotate-rev 60s linear infinite;
+  filter: blur(1px);
+}
+
+/* stars container */
+.space-bg__stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* single star */
+.space-bg__star {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  transform-origin: center;
+  animation-name: star-twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Animations */
+@keyframes core-slow-rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes ring-rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.95; }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1.03); opacity: 0.95; }
+}
+
+@keyframes ring-rotate-rev {
+  0% { transform: translate(-50%, -50%) rotate(360deg) scale(1); opacity: 0.95; }
+  100% { transform: translate(-50%, -50%) rotate(0deg) scale(1.03); opacity: 0.95; }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* small helpful utility to ensure background does not cause horizontal scrolling */
+html, body, #__next {
+  height: 100%;
+}
+html, body {
+  height: auto;
+  min-height: 100%;
+}

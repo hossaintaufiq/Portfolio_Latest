@@ -1,102 +1,4 @@
-// export const metadata = {
-//   title: "About",
-//   description:
-//     "Background, principles, and approach behind the AI engineer powering this portfolio.",
-// };
 
-// const milestones = [
-//   {
-//     year: "2025",
-//     title: "Chief AI Architect, Gradient Labs",
-//     description:
-//       "Led a cross-functional strike team that launched three autonomous research agents for regulated industries.",
-//   },
-//   {
-//     year: "2023",
-//     title: "Principal Engineer, Nova Intelligence",
-//     description:
-//       "Shipped a multimodal co-pilot that now guides 600+ field specialists through complex inspections globally.",
-//   },
-//   {
-//     year: "2021",
-//     title: "Independent Consultant",
-//     description:
-//       "Partnered with startups to move from proof-of-concept LLM demos to production-ready, observable systems.",
-//   },
-// ];
-
-// const principles = [
-//   {
-//     title: "Research first, hype second",
-//     description:
-//       "Translate academic breakthroughs into pragmatic experiments and benchmarks before committing to production.",
-//   },
-//   {
-//     title: "Design for humans in the loop",
-//     description:
-//       "Build transparent experiences so operators understand what the model knows, where it is unsure, and how to intervene.",
-//   },
-//   {
-//     title: "Operational excellence",
-//     description:
-//       "Logging, evaluations, and rollout plans are treated as first-class features—not afterthoughts once a demo works.",
-//   },
-// ];
-
-// export default function AboutPage() {
-//   return (
-//     <div className="space-y-16">
-//       <section className="space-y-6">
-//         <h1 className="text-4xl font-semibold tracking-tight">The person behind the models</h1>
-//         <p className="max-w-3xl text-lg text-white/70">
-//           I design and ship intelligent systems that augment expert workflows. Over the past decade I have built
-//           cognitive search platforms, AI copilots, and research agents that operate responsibly in high-stakes
-//           environments. My work spans the full stack—from data engineering and model experiments to product design and
-//           stakeholder enablement.
-//         </p>
-//       </section>
-
-//       <section className="grid gap-8 lg:grid-cols-[1.1fr,1fr]">
-//         <article className="rounded-3xl border border-white/10 bg-white/5 p-8">
-//           <h2 className="text-2xl font-semibold tracking-tight">Operating principles</h2>
-//           <div className="mt-6 space-y-6">
-//             {principles.map((principle) => (
-//               <div key={principle.title}>
-//                 <h3 className="text-lg font-semibold tracking-tight">{principle.title}</h3>
-//                 <p className="mt-2 text-sm text-white/70">{principle.description}</p>
-//               </div>
-//             ))}
-//           </div>
-//         </article>
-//         <article className="rounded-3xl border border-white/10 bg-[#0F1016] p-8">
-//           <h2 className="text-2xl font-semibold tracking-tight">Outside the build loop</h2>
-//           <p className="mt-4 text-sm text-white/70">
-//             I mentor early-career engineers, run monthly reading groups on agent safety, and contribute to open-source
-//             evaluation tooling. When unplugged, you'll find me experimenting with generative art, trail running, or
-//             learning new instruments.
-//           </p>
-//         </article>
-//       </section>
-
-//       <section className="space-y-8">
-//         <h2 className="text-2xl font-semibold tracking-tight">Milestones</h2>
-//         <div className="space-y-6">
-//           {milestones.map((milestone) => (
-//             <div key={milestone.year} className="flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 p-6 md:flex-row md:items-center md:justify-between">
-//               <div className="text-sm font-semibold uppercase tracking-[0.4em] text-white/50">
-//                 {milestone.year}
-//               </div>
-//               <div className="max-w-2xl space-y-1">
-//                 <h3 className="text-lg font-semibold tracking-tight">{milestone.title}</h3>
-//                 <p className="text-sm text-white/70">{milestone.description}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </section>
-//     </div>
-//   );
-// }
 
 
 export const metadata = {
@@ -106,17 +8,18 @@ export const metadata = {
 };
 
 const milestones = [
-  {
-    year: "2025",
-    title: "Research Assistant, North South University",
-    description:
-      "Conducting research on early detection of epileptic seizures using EEG data and deep learning under the supervision of Dr. MD. Sumon Hossain. Focused on model training, evaluation, and improving prediction accuracy.",
-  },
+  
   {
     year: "2024",
     title: "Founder & CEO, Justkaaj",
     description:
       "Founded and launched Justkaaj — a service marketplace platform connecting users with providers. Spearheaded full-stack development using Next.js, Node.js, PostgreSQL, and ML-powered recommendations.",
+  },
+  {
+    year: "2025",
+    title: "Research Assistant, North South University",
+    description:
+      "Conducting research on early detection of epileptic seizures using EEG data and deep learning under the supervision of Dr. MD. Sumon Hossain. Focused on model training, evaluation, and improving prediction accuracy.",
   },
   {
     year: "2023",
@@ -223,8 +126,56 @@ export default function AboutPage() {
               </div>
             </div>
           ))}
-        </div>
+        </div> 
       </section>
-    </div>
+
+      {/* Milestones */}
+{/* <section className="relative py-12">
+  <h2 className="text-2xl font-semibold tracking-tight mb-12">Milestones</h2>
+
+  {/* Vertical line in the center */}
+  {/* <div className="absolute left-1/2 top-0 h-full w-1 bg-white/20 -translate-x-1/2"></div>
+
+  <div className="space-y-12">
+    {milestones.map((milestone, index) => {
+      const isLeft = index % 2 === 0; // alternate left/right
+      return (
+        <div
+          key={milestone.year}
+          className={`relative flex items-center justify-${isLeft ? "start" : "end"} w-full`}
+        >
+          {/* Card */}
+          {/* <div
+            className={`w-80 bg-[#0F1016] rounded-3xl p-6 border border-white/10 text-white ${
+              isLeft ? "mr-auto text-left" : "ml-auto text-right"
+            }`}
+          >
+            <h3 className="text-lg font-semibold tracking-tight">{milestone.title}</h3>
+            <p className="mt-2 text-sm text-white/70">{milestone.description}</p>
+          </div>
+
+          {/* Circle icon */}
+          {/* <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center w-10 h-10 bg-[#0F1016] border-2 border-white/30 rounded-full">
+            {milestone.year === "2024" ? (
+              <span className="text-white font-bold">🔥</span>
+            ) : milestone.year === "2025" ? (
+              <span className="text-white font-bold">🟩</span>
+            ) : (
+              <span className="text-white font-bold">{milestone.year}</span>
+            )}
+          </div>
+
+          {/* Year label near the circle */}
+          {/* <div className="absolute left-1/2 top-12 -translate-x-1/2 text-sm font-semibold text-white/50">
+            {milestone.year}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</section>  */}
+    </div> 
   );
 }
+
+
