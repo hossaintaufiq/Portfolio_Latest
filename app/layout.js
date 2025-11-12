@@ -75,6 +75,8 @@ import Footer from "../components/footer";
 import SpaceBackground from "../components/SpaceBackground";
 import "./globals.css";
 import ThreeBlackHole from "@/components/ThreeBlackHole";
+import floating_nav from "@/components/floating_nav";
+import FloatingSidebarNavigation from "@/components/floating_nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -106,9 +108,11 @@ export default function RootLayout({ children }) {
 
         <Navbar />
         <ThreeBlackHole/>
+        
         <main className="mx-auto flex min-h-[calc(100vh-96px)] w-full max-w-6xl flex-col px-6 py-16">
           {children}
         </main>
+        <FloatingSidebarNavigation />
         <Footer />
       </body>
     </html>
