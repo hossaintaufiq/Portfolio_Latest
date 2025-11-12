@@ -11,6 +11,7 @@ import {
   Mail,
   X,
   Compass,
+  MessageCircle, // 👈 added
 } from "lucide-react";
 
 // --- Navigation Data ---
@@ -21,6 +22,7 @@ const navLinks = [
   { href: "/research", label: "Research", icon: BookOpen },
   { href: "/services", label: "Services", icon: Briefcase },
   { href: "/contact", label: "Contact", icon: Mail },
+  { href: "/chatbot", label: "Chatbot", icon: MessageCircle }, // 👈 new link added
 ];
 
 // Helper to calculate icon/text positions on a quarter circle
