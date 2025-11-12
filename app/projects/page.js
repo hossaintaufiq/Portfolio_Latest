@@ -167,15 +167,19 @@ const projectSections = [
 function ProjectCard({ project }) {
   return (
     <article
-      className="relative flex h-full flex-col overflow-hidden rounded-xl border border-white/5 bg-[#0A0A10] 
+      className="relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 // Subtle border is crucial
+                 bg-black/30 // KEY CHANGE: Solid black with 30% opacity
                  shadow-lg transition-all duration-300 ease-in-out
                  hover:scale-[1.02] hover:border-cyan-400/20 hover:shadow-cyan-400/10
-                 group" // Added group for hover effects on children
+                 group"
     >
       {/* Top Section: Thumbnail and Links */}
-      <div className="relative h-48 w-full overflow-hidden rounded-t-xl bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+      <div
+        className="relative h-48 w-full overflow-hidden rounded-t-xl
+                   bg-gradient-to-br from-purple-800/60 via-blue-800/60 to-indigo-800/60 // GLOSSY THUMBNAIL GRADIENT (with more opacity)
+                   border-b border-white/10" // Added a subtle bottom border for separation
+      >
         {project.thumbnail && (
-          // In a real Next.js app, use the <Image> component for better performance
           <img
             src={project.thumbnail}
             alt={`${project.name} Thumbnail`}
@@ -188,7 +192,7 @@ function ProjectCard({ project }) {
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-colors duration-200"
+              className="p-2 rounded-full bg-white/15 text-white/90 hover:bg-white/25 hover:text-white transition-colors duration-200" // Slightly more prominent hover
               aria-label="GitHub Repository"
             >
               <FaGithub size={20} />
@@ -199,7 +203,7 @@ function ProjectCard({ project }) {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-colors duration-200"
+              className="p-2 rounded-full bg-white/15 text-white/90 hover:bg-white/25 hover:text-white transition-colors duration-200" // Slightly more prominent hover
               aria-label="Live Website"
             >
               <FaExternalLinkAlt size={20} />
@@ -210,7 +214,7 @@ function ProjectCard({ project }) {
 
       {/* Bottom Section: Details and Tags */}
       <div className="flex flex-col flex-grow p-6 space-y-4">
-        <h3 className="text-2xl font-semibold tracking-tight text-white">
+        <h3 className="text-2xl font-semibold tracking-tight text-white ">
           {project.name}
         </h3>
         <p className="text-base text-white/70 flex-grow">
@@ -224,8 +228,7 @@ function ProjectCard({ project }) {
               const { bg, text } = getRandomTagColor();
               return (
                 <span
-                  // Index is okay here since the list of technologies is static
-                  key={tech + index} 
+                  key={tech + index}
                   className={`rounded-full px-3 py-1 text-xs font-medium ${bg} ${text}`}
                 >
                   #{tech.toLowerCase().replace(/[^a-z0-9]/g, "")}
@@ -243,7 +246,7 @@ function ProjectCard({ project }) {
 // --- Main ProjectsPage Component (Fixed) ---
 export default function ProjectsPage() {
   return (
-    <div className="space-y-16 py-12 px-4 md:px-8 max-w-7xl mx-auto">
+    <div className="space-y-16  md:px-8 max-w-7xl mx-auto">
       {/* Header */}
       <section className="space-y-6 text-center"> {/* Removed text-center from section */}
         <h1 className="text-5xl font-extrabold tracking-tight text-white">Projects</h1>
