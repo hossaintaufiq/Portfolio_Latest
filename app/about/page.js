@@ -1,6 +1,3 @@
-
-
-
 // export const metadata = {
 //   title: "About | Hossain Taufiq Ahmmed",
 //   description:
@@ -8,7 +5,7 @@
 // };
 
 // const milestones = [
-  
+
 //   {
 //     year: "2024",
 //     title: "Founder & CEO, Justkaaj",
@@ -126,14 +123,35 @@
 //               </div>
 //             </div>
 //           ))}
-//         </div> 
+//         </div>
 //       </section>
 
-    
-//     </div> 
+//     </div>
 //   );
 // }
 
+import {
+  FaPython,
+  FaJava,
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaDatabase,
+  FaDocker,
+  FaGitAlt,
+} from "react-icons/fa";
+import {
+  SiDjango,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTensorflow,
+  SiPytorch,
+  SiMongodb,
+  SiPostgresql,
+  SiTypescript,
+  SiFirebase,
+  SiGraphql,
+} from "react-icons/si";
 
 export const metadata = {
   title: "About | Hossain Taufiq Ahmmed",
@@ -186,21 +204,25 @@ const principles = [
   },
 ];
 
-const skills = {
-  programming: ["C++", "Java", "Python", "JavaScript (ES6+)", "TypeScript"],
-  frontend: ["React.js", "Next.js", "Tailwind CSS", "HTML", "CSS"],
-  backend: ["Node.js", "Express.js", "Django", "GraphQL", "RESTful APIs"],
-  database: ["PostgreSQL", "MySQL", "MongoDB", "Firebase"],
-  machineLearning: [
-    "TensorFlow",
-    "PyTorch",
-    "Pandas",
-    "NumPy",
-    "Scikit-learn",
-    "Data Analysis",
-  ],
-  tools: ["Git", "GitHub", "Docker", "CI/CD", "Jest", "Mocha"],
-};
+const skills = [
+  { name: "Python", icon: <FaPython className="text-yellow-400" /> },
+  { name: "Java", icon: <FaJava className="text-orange-500" /> },
+  { name: "JavaScript (ES6+)", icon: <FaJs className="text-yellow-300" /> },
+  { name: "TypeScript", icon: <SiTypescript className="text-blue-400" /> },
+  { name: "React.js", icon: <FaReact className="text-cyan-400" /> },
+  { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
+  { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+  { name: "Express.js", icon: <FaNodeJs className="text-green-500" /> },
+  { name: "Django", icon: <SiDjango className="text-green-700" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql className="text-sky-500" /> },
+  { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> },
+  { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+  { name: "TensorFlow", icon: <SiTensorflow className="text-orange-400" /> },
+  { name: "PyTorch", icon: <SiPytorch className="text-red-500" /> },
+  { name: "Docker", icon: <FaDocker className="text-blue-500" /> },
+  { name: "Git & GitHub", icon: <FaGitAlt className="text-orange-400" /> },
+];
 
 export default function AboutPage() {
   return (
@@ -213,12 +235,11 @@ export default function AboutPage() {
         <p className="max-w-3xl text-lg text-white/70">
           I’m an AI/ML Researcher and Full-Stack Developer passionate about
           transforming innovative ideas into intelligent, scalable solutions. As
-          the Founder & CEO of{" "}
-          <span className="font-semibold">Justkaaj</span>, I combine machine
-          learning, data analysis, and full-stack development to create impactful
-          digital products. I’ve worked across React, Next.js, Django, and AI
-          frameworks like TensorFlow and PyTorch to build applications that bridge
-          human needs and technology.
+          the Founder & CEO of <span className="font-semibold">Justkaaj</span>,
+          I combine machine learning, data analysis, and full-stack development
+          to create impactful digital products. I’ve worked across React,
+          Next.js, Django, and AI frameworks like TensorFlow and PyTorch to
+          build applications that bridge human needs and technology.
         </p>
       </section>
 
@@ -247,11 +268,11 @@ export default function AboutPage() {
             Beyond Development
           </h2>
           <p className="mt-4 text-sm text-white/70">
-            Outside of coding, I enjoy mentoring peers, exploring advancements in
-            AI ethics, and experimenting with automation tools. I’m also passionate
-            about traveling, fitness, and continuous self-improvement to maintain
-            creativity and focus. Sports like badminton and cricket keep my teamwork
-            and strategic thinking sharp.
+            Outside of coding, I enjoy mentoring peers, exploring advancements
+            in AI ethics, and experimenting with automation tools. I’m also
+            passionate about traveling, fitness, and continuous self-improvement
+            to maintain creativity and focus. Sports like badminton and cricket
+            keep my teamwork and strategic thinking sharp.
           </p>
         </article>
       </section>
@@ -279,27 +300,133 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section className="space-y-8">
-        <h2 className="text-2xl font-semibold tracking-tight">Technical Skills</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {Object.entries(skills).map(([category, items]) => (
-            <div
-              key={category}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition"
-            >
-              <h3 className="capitalize text-lg font-semibold tracking-tight mb-3">
-                {category.replace(/([A-Z])/g, " $1")}
-              </h3>
-              <ul className="space-y-1 text-sm text-white/70">
-                {items.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      
+      {/* Skills Section - Consistent 3-Column Grid */}
+<section className="space-y-8">
+  <h2 className="text-2xl font-semibold tracking-tight">
+    Technical Skills
+  </h2>
+  {/* The main grid now handles 6 items consistently across 2 rows of 3 */}
+  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+    {/* Programming (1/6) */}
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+      <h3 className="text-lg font-semibold mb-3">Programming</h3>
+      <div className="flex flex-wrap gap-3">
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaPython className="text-yellow-400" /> <span>Python</span>
         </div>
-      </section>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaJava className="text-orange-500" /> <span>Java</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaJs className="text-yellow-300" /> <span>JavaScript</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiTypescript className="text-blue-400" />{" "}
+          <span>TypeScript</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Frontend (2/6) */}
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+      <h3 className="text-lg font-semibold mb-3">Frontend</h3>
+      <div className="flex flex-wrap gap-3">
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaReact className="text-cyan-400" /> <span>React.js</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiNextdotjs className="text-white" /> <span>Next.js</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiTailwindcss className="text-teal-400" />{" "}
+          <span>Tailwind CSS</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <span>HTML</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <span>CSS</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Backend (3/6) */}
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+      <h3 className="text-lg font-semibold mb-3">Backend</h3>
+      <div className="flex flex-wrap gap-3">
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaNodeJs className="text-green-500" /> <span>Node.js</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaNodeJs className="text-green-500" /> <span>Express.js</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiDjango className="text-green-700" /> <span>Django</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiGraphql className="text-pink-500" /> <span>GraphQL</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Database (4/6) */}
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+      <h3 className="text-lg font-semibold mb-3">Database</h3>
+      <div className="flex flex-wrap gap-3">
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiPostgresql className="text-sky-500" />{" "}
+          <span>PostgreSQL</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaDatabase className="text-orange-400" /> <span>MySQL</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiMongodb className="text-green-400" /> <span>MongoDB</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiFirebase className="text-yellow-500" /> <span>Firebase</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Machine Learning (5/6) - Split from the original "ML & Tools" */}
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+      <h3 className="text-lg font-semibold mb-3">
+        Machine Learning
+      </h3>
+      <div className="flex flex-wrap gap-3">
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiTensorflow className="text-orange-400" />{" "}
+          <span>TensorFlow</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <SiPytorch className="text-red-500" /> <span>PyTorch</span>
+        </div>
+      </div>
+    </div>
+
+    {/* DevOps & Tools (6/6) - New category created from the original "ML & Tools" */}
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+      <h3 className="text-lg font-semibold mb-3">
+        DevOps & Tools
+      </h3>
+      <div className="flex flex-wrap gap-3">
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaGitAlt className="text-orange-400" />{" "}
+          <span>Git & GitHub</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <FaDocker className="text-blue-500" /> <span>Docker</span>
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+          <span>Jest / Mocha</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   );
 }
