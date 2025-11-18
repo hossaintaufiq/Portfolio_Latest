@@ -145,6 +145,7 @@ import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
 import * as THREE from "three";
+import { FaGithub, FaLinkedin, FaFacebook, FaPhone } from "react-icons/fa";
 
 // --- Inline SVG Paper Plane Icon ---
 const PaperPlaneIcon = ({ className }) => (
@@ -184,11 +185,35 @@ function AnimatedGlobe() {
 
 // --- Main Contact Client Component ---
 export default function ContactClientPage() {
+  // Replace with your actual phone number
+  const phoneNumber = "+1234567890"; // Update this with your phone number
+  
+  const socialLinks = [
+    {
+      href: "https://www.facebook.com/yourprofile", // Update with your Facebook URL
+      icon: FaFacebook,
+      label: "Facebook",
+      color: "hover:text-blue-500",
+    },
+    {
+      href: "https://www.linkedin.com/in/hossain-taufiq/",
+      icon: FaLinkedin,
+      label: "LinkedIn",
+      color: "hover:text-blue-400",
+    },
+    {
+      href: "https://github.com/hosain-taufiq",
+      icon: FaGithub,
+      label: "GitHub",
+      color: "hover:text-gray-300",
+    },
+  ];
+
   return (
     <div className="relative min-h-screen bg-transparent text-white flex flex-col items-center justify-center p-4 sm:p-8 overflow-hidden">
       {/* Title */}
       <h1 className="text-6xl md:text-7xl font-extrabold tracking-tighter mb-16 text-center z-10 relative">
-        Let’s Work Together
+        Let&apos;s Work Together
       </h1>
 
       {/* Content: Form + Globe */}
@@ -258,6 +283,49 @@ export default function ContactClientPage() {
               Send Message <PaperPlaneIcon className="h-5 w-5 ml-2" />
             </button>
           </form>
+
+          {/* Social Links & Contact Info Section */}
+          <div className="pt-8 border-t border-white/10">
+            <p className="text-sm font-semibold uppercase tracking-wider text-white/60 mb-4">
+              Connect With Me
+            </p>
+            <div className="flex flex-col gap-4">
+              {/* Phone Number */}
+              <a
+                href={`tel:${phoneNumber.replace(/\s/g, "")}`}
+                className="group flex items-center gap-4 rounded-lg border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:border-cyan-500/30 hover:bg-white/10"
+              >
+                <div className="rounded-full bg-cyan-500/20 p-3 group-hover:bg-cyan-500/30 transition-colors">
+                  <FaPhone className="h-5 w-5 text-cyan-400" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-white/50">Phone</p>
+                  <p className="text-base font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                    {phoneNumber}
+                  </p>
+                </div>
+              </a>
+
+              {/* Social Media Links */}
+              <div className="flex gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className={`group flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:border-cyan-500/30 hover:bg-white/10 ${social.color}`}
+                    >
+                      <Icon className="h-6 w-6 text-white/80 group-hover:scale-110 transition-transform" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Right Section: 3D Globe */}
