@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Code, Sparkles, Brain, FlaskConical, BookOpen, FileText, Network, Cpu } from "lucide-react";
+import Link from "next/link";
+import { Code, Sparkles, Brain, FlaskConical, BookOpen, FileText, Network, Cpu, ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
 
 const researchTracks = [
   {
@@ -117,33 +118,35 @@ function FloatingParticles() {
 
 export default function ResearchPage() {
   return (
-    <div className="space-y-20 pb-16">
-      {/* Header - Enhanced */}
+    <div className="space-y-32 pb-16">
+      {/* Header Section - Enhanced */}
       <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black/40 via-[#0a0a0f]/40 to-[#1a1a2e]/40 p-8 sm:p-12 lg:p-16 backdrop-blur-sm">
         <FloatingParticles />
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-blue-500/5 to-cyan-500/5 animate-pulse-slow" />
         
-        <div className="relative z-10 space-y-6">
+        <div className="relative z-10 space-y-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 backdrop-blur-sm">
             <Sparkles className="h-4 w-4 text-purple-400" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-purple-300">
+            <span className="text-xs font-semibold uppercase tracking-wider text-purple-300 sm:text-sm">
               AI Research • Machine Learning • Innovation
             </span>
           </div>
           
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-white via-purple-100 to-cyan-200 bg-clip-text text-transparent">
-              Research
-            </span>
-          </h1>
-          
-          <p className="max-w-3xl text-lg sm:text-xl text-white/80 leading-relaxed">
-            My research lies at the intersection of artificial intelligence,
-            machine learning, and real-world problem-solving. I explore multimodal
-            reasoning, scientific prediction, health analytics, and human-AI
-            collaboration — focusing on building transparent, efficient, and
-            impactful AI systems.
-          </p>
+          <div className="space-y-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+              <span className="bg-gradient-to-r from-white via-purple-100 to-cyan-200 bg-clip-text text-transparent">
+                Research
+              </span>
+            </h1>
+            
+            <p className="max-w-3xl text-lg sm:text-xl text-white/80 leading-relaxed">
+              My research lies at the intersection of artificial intelligence,
+              machine learning, and real-world problem-solving. I explore multimodal
+              reasoning, scientific prediction, health analytics, and human-AI
+              collaboration — focusing on building transparent, efficient, and
+              impactful AI systems.
+            </p>
+          </div>
 
           {/* Code snippet decoration */}
           <div className="mt-8">
@@ -169,36 +172,41 @@ export default function ResearchPage() {
       </section>
 
       {/* Active Research - Enhanced */}
-      <section className="space-y-8">
+      <section className="space-y-12">
         <div className="flex items-center gap-3">
           <Brain className="h-6 w-6 text-purple-400" />
-          <h2 className="text-4xl font-bold tracking-tight text-white">
-            Active Investigations
-          </h2>
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              Active Investigations
+            </h2>
+            <p className="mt-2 text-lg text-white/60">
+              Cutting-edge AI research and innovation
+            </p>
+          </div>
         </div>
         
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2">
           {researchTracks.map((track, index) => {
             const Icon = track.icon;
             return (
               <article
                 key={track.label}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/10"
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/10"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${track.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
                 
-                <div className="relative z-10 space-y-4">
+                <div className="relative z-10 flex flex-1 flex-col space-y-4">
                   <div className="flex items-start justify-between gap-4">
                     <div className="rounded-2xl bg-white/5 p-3 backdrop-blur-sm group-hover:scale-110 transition-transform">
                       <Icon className="h-6 w-6 text-cyan-400" />
                     </div>
-                    <span className={`rounded-full border px-3 py-1.5 text-xs font-bold uppercase tracking-wider ${track.statusColor}`}>
+                    <span className={`rounded-full border px-3 py-1.5 text-xs font-bold uppercase tracking-wider flex-shrink-0 ${track.statusColor}`}>
                       {track.status}
                     </span>
                   </div>
                   
-                  <div>
-                    <h3 className="text-xl font-bold tracking-tight text-white mb-3">
+                  <div className="flex-1 space-y-3">
+                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                       {track.label}
                     </h3>
                     <p className="text-base leading-relaxed text-white/70">
@@ -212,23 +220,25 @@ export default function ResearchPage() {
         </div>
 
         {/* Research Philosophy - Enhanced */}
-        <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0F1016] to-[#050508] p-8 backdrop-blur-sm">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-cyan-500/5" />
-          <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-6">
-              <BookOpen className="h-6 w-6 text-purple-400" />
-              <h2 className="text-3xl font-bold tracking-tight text-white">
+        <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0F1016] to-[#050508] p-8 sm:p-12 backdrop-blur-sm shadow-xl">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-blue-500/5 to-cyan-500/5" />
+          <div className="relative z-10 space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="rounded-xl bg-white/5 p-2 backdrop-blur-sm">
+                <BookOpen className="h-6 w-6 text-purple-400" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
                 Research Philosophy
               </h2>
             </div>
             <div className="space-y-4">
-              <p className="text-base leading-relaxed text-white/80">
+              <p className="text-lg leading-relaxed text-white/80">
                 I aim to combine theoretical innovation with practical application —
                 ensuring that every AI system I build not only performs well but
                 also behaves responsibly in real-world settings. My work prioritizes
                 explainability, data ethics, and reproducibility.
               </p>
-              <p className="text-base leading-relaxed text-white/80">
+              <p className="text-lg leading-relaxed text-white/80">
                 Collaboration is central to my research. I work with peers across
                 AI, materials science, and cognitive systems to explore how
                 cross-domain knowledge can accelerate discovery and responsible AI
@@ -240,12 +250,17 @@ export default function ResearchPage() {
       </section>
 
       {/* Publications - Enhanced */}
-      <section className="space-y-8">
+      <section className="space-y-12">
         <div className="flex items-center gap-3">
           <FileText className="h-6 w-6 text-cyan-400" />
-          <h2 className="text-4xl font-bold tracking-tight text-white">
-            Publications & Research Contributions
-          </h2>
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              Publications & Research Contributions
+            </h2>
+            <p className="mt-2 text-lg text-white/60">
+              Recent publications and conference contributions
+            </p>
+          </div>
         </div>
         <div className="grid gap-6">
           {publications.map((publication, index) => (
@@ -254,36 +269,71 @@ export default function ResearchPage() {
               href={publication.link}
               target="_blank"
               rel="noreferrer"
-              className="group relative overflow-hidden flex flex-col gap-3 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/10"
+              className="group relative overflow-hidden flex flex-col gap-4 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-6 sm:p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/10"
             >
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               
               <div className="relative z-10 flex items-start justify-between gap-4">
-                <div className="flex-1 space-y-2">
-                  <div className="flex items-center gap-3">
+                <div className="flex-1 space-y-3">
+                  <div className="flex flex-wrap items-center gap-3">
                     <div className="rounded-lg bg-gradient-to-br from-cyan-500/20 to-blue-500/20 p-2 group-hover:scale-110 transition-transform">
                       <FileText className="h-4 w-4 text-cyan-400" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-cyan-400/80">
+                    <span className="text-xs font-bold uppercase tracking-wider text-cyan-400/80 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10">
                       {publication.year}
                     </span>
-                    <span className="text-sm font-semibold uppercase tracking-[0.35em] text-white/50">
+                    <span className="text-sm font-semibold uppercase tracking-wider text-white/50">
                       {publication.venue}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors">
                     {publication.title}
                   </h3>
                 </div>
-                <div className="flex-shrink-0 rounded-full bg-white/5 p-2 group-hover:bg-cyan-500/20 transition-colors">
-                  <span className="text-xs font-bold text-white/60 group-hover:text-cyan-300">
-                    #{String(index + 1).padStart(2, "0")}
-                  </span>
+                <div className="flex-shrink-0 flex items-center gap-2">
+                  <div className="rounded-full bg-white/5 p-2 group-hover:bg-cyan-500/20 transition-colors">
+                    <span className="text-xs font-bold text-white/60 group-hover:text-cyan-300">
+                      #{String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <ExternalLink className="h-5 w-5 text-white/40 group-hover:text-cyan-400 transition-colors" />
                 </div>
               </div>
             </a>
           ))}
+        </div>
+      </section>
+
+      {/* CTA Section - Enhanced */}
+      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-12 text-center backdrop-blur-sm sm:p-16 max-w-7xl mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5" />
+        
+        <div className="relative z-10 space-y-8">
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              Interested in collaborating on research?
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-white/80">
+              I&apos;m always open to discussing research opportunities, academic collaborations, and innovative AI projects. Let&apos;s explore how we can advance AI together.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/40"
+            >
+              Start Collaboration
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/50 hover:bg-white/10"
+            >
+              View Services
+            </Link>
+          </div>
         </div>
       </section>
     </div>

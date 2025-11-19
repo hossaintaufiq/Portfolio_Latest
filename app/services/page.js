@@ -1,24 +1,15 @@
-
 "use client";
 
 import Link from "next/link";
-import { Zap, Monitor, Smartphone, BookOpen, Settings } from "lucide-react";
+import { Zap, Monitor, Smartphone, BookOpen, Settings, ArrowRight, CheckCircle2 } from "lucide-react";
 
-// Mapping icons to offerings
-const offeringIcons = {
-  "Web Development": <Monitor className="w-6 h-6 text-cyan-400" />,
-  "App Development": <Smartphone className="w-6 h-6 text-cyan-400" />,
-  "AI & Machine Learning Solutions": <Zap className="w-6 h-6 text-cyan-400" />,
-  "Research & Academic Support": <BookOpen className="w-6 h-6 text-cyan-400" />,
-  "Custom Software Solutions": <Settings className="w-6 h-6 text-cyan-400" />,
-};
-
-// Replace these with actual Stripe payment links or create dynamic checkout sessions
 const offerings = [
   {
     name: "Web Development",
+    icon: Monitor,
     duration: "3–6 weeks",
     price: "$1200",
+    gradient: "from-cyan-500/20 via-blue-500/20 to-teal-500/20",
     summary:
       "End-to-end web development using modern frameworks like React, Next.js, and Django. I create responsive, high-performance web apps tailored to business and academic needs.",
     deliverables: [
@@ -30,8 +21,10 @@ const offerings = [
   },
   {
     name: "App Development",
+    icon: Smartphone,
     duration: "4–8 weeks",
     price: "$1500",
+    gradient: "from-purple-500/20 via-pink-500/20 to-rose-500/20",
     summary:
       "Native and cross-platform mobile applications built using React Native or Flutter, with backend and AI integration for real-world scalability.",
     deliverables: [
@@ -43,8 +36,10 @@ const offerings = [
   },
   {
     name: "AI & Machine Learning Solutions",
+    icon: Zap,
     duration: "6–10 weeks",
     price: "$2000",
+    gradient: "from-yellow-500/20 via-orange-500/20 to-red-500/20",
     summary:
       "Designing and implementing machine learning models for automation, analytics, and prediction — from data preprocessing to model deployment.",
     deliverables: [
@@ -56,8 +51,10 @@ const offerings = [
   },
   {
     name: "Research & Academic Support",
+    icon: BookOpen,
     duration: "2–4 weeks",
     price: "$800",
+    gradient: "from-green-500/20 via-emerald-500/20 to-teal-500/20",
     summary:
       "Guidance and collaboration on research projects, academic papers, and AI model implementation for students and professionals.",
     deliverables: [
@@ -69,21 +66,10 @@ const offerings = [
   },
   {
     name: "Custom Software Solutions",
+    icon: Settings,
     duration: "8–12 weeks",
     price: "$2500",
-    summary:
-      "Building tailored digital systems such as CRMs, ERPs, automation dashboards, and analytics tools that streamline operations and drive measurable impact.",
-    deliverables: [
-      "Requirement analysis & architecture design",
-      "Feature-rich dashboards and APIs",
-      "Scalable & secure backend systems",
-      "Comprehensive documentation & team handoff",
-    ],
-  },
-  {
-    name: "Custom Software Solutions",
-    duration: "8–12 weeks",
-    price: "$2500",
+    gradient: "from-indigo-500/20 via-purple-500/20 to-pink-500/20",
     summary:
       "Building tailored digital systems such as CRMs, ERPs, automation dashboards, and analytics tools that streamline operations and drive measurable impact.",
     deliverables: [
@@ -104,159 +90,177 @@ const collaborationValues = [
 
 export default function ServicesPage() {
   return (
-    <div className="space-y-20 px-4 sm:px-8 lg:px-16 py-16">
-      {/* Header */}
-      <section className="space-y-6 text-center">
-        <h1 className="text-5xl font-extrabold text-white tracking-tight">
-          Services & Pricing ✨
-        </h1>
-        <p className="max-w-3xl mx-auto text-xl text-gray-300">
-          I help individuals, startups, and research teams bring ideas to life —
-          from web and mobile applications to AI-powered systems and research
-          collaborations.
-        </p>
+    <div className="space-y-32 pb-16">
+      {/* Header Section - Enhanced */}
+      <section className="space-y-8">
+        <div className="text-center space-y-6">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+            <span className="bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent">
+              Services & Pricing
+            </span>
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg sm:text-xl text-white/80 leading-relaxed">
+            I help individuals, startups, and research teams bring ideas to life — from web and mobile applications to AI-powered systems and research collaborations.
+          </p>
+        </div>
       </section>
 
-      {/* Offerings - Grid Layout */}
-      <section className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-        {offerings.map((offering) => (
-          <article
-            key={offering.name}
-            // Retained transparency, updated borders and hover effects
-            className="flex flex-col rounded-xl p-8 transition-all duration-300 border border-white/10 bg-transparent hover:border-cyan-500 shadow-xl relative overflow-hidden"
-          >
-            {/* 1. Price and Icon Header - Clear and Immediate */}
-            <div className="mb-6 pb-4 border-b border-white/10">
-              <div className="flex justify-between items-center mb-4">
-                <div className="flex items-center space-x-3">
-                    {offeringIcons[offering.name]}
-                    <h2 className="text-2xl font-bold text-white">
-                    {offering.name}
-                    </h2>
-                </div>
-                <span className="text-sm text-gray-400 font-medium">
-                    {offering.duration}
-                </span>
-              </div>
-              
-              <div className="flex items-baseline justify-start gap-2">
-                <span className="text-5xl font-extrabold text-cyan-400">
-                  {offering.price}
-                </span>
-                <span className="text-base text-gray-400">
-                  (Estimated)
-                </span>
-              </div>
-            </div>
+      {/* Offerings Grid - Enhanced */}
+      <section className="space-y-12">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+          {offerings.map((offering) => {
+            const Icon = offering.icon;
+            return (
+              <article
+                key={offering.name}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 shadow-xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/10"
+              >
+                {/* Gradient overlay on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${offering.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
+                
+                {/* Content */}
+                <div className="relative z-10 flex flex-1 flex-col">
+                  {/* Icon and Header */}
+                  <div className="mb-6 flex items-start justify-between">
+                    <div className="rounded-2xl bg-white/5 p-3 backdrop-blur-sm group-hover:scale-110 transition-transform">
+                      <Icon className="h-6 w-6 text-cyan-400" />
+                    </div>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-white/40">
+                      {offering.duration}
+                    </span>
+                  </div>
 
-            {/* 2. Summary - Primary Text Block */}
-            <div className="mb-8">
-              <p className="text-gray-300 text-base leading-relaxed">
-                {offering.summary}
+                  {/* Title and Price */}
+                  <div className="mb-6 space-y-3">
+                    <h2 className="text-2xl font-bold tracking-tight text-white">
+                      {offering.name}
+                    </h2>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-extrabold text-cyan-400">
+                        {offering.price}
+                      </span>
+                      <span className="text-sm text-white/50">
+                        (Estimated)
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Summary */}
+                  <div className="mb-6">
+                    <p className="text-base leading-relaxed text-white/70">
+                      {offering.summary}
+                    </p>
+                  </div>
+                  
+                  {/* Deliverables */}
+                  <div className="flex-1 space-y-4 mb-6">
+                    <p className="text-white font-semibold text-lg border-b border-white/10 pb-2">
+                      Key Deliverables
+                    </p>
+                    <ul className="space-y-3">
+                      {offering.deliverables.map((item, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-cyan-400 flex-shrink-0" />
+                          <span className="text-sm text-white/70 leading-relaxed">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="mt-auto pt-6 border-t border-white/10">
+                    <Link
+                      href="/contact"
+                      className="group/btn inline-flex items-center justify-center gap-2 w-full rounded-full bg-cyan-500/10 border border-cyan-500/30 px-6 py-3 text-base font-semibold text-cyan-400 transition-all duration-300 hover:bg-cyan-500 hover:text-white hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/25"
+                    >
+                      Start Project
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Collaboration Values - Enhanced */}
+      <section className="max-w-7xl mx-auto">
+        <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0F1016] to-[#050508] p-8 sm:p-12 backdrop-blur-sm shadow-xl">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-purple-500/5" />
+          
+          <div className="relative z-10 grid gap-8 lg:grid-cols-2">
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="rounded-xl bg-white/5 p-2 backdrop-blur-sm">
+                  <CheckCircle2 className="h-5 w-5 text-cyan-400" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                  Collaboration Values
+                </h2>
+              </div>
+              <p className="text-lg leading-relaxed text-white/80">
+                Every project is built on <span className="font-semibold text-white">communication</span>, <span className="font-semibold text-white">transparency</span>, and a shared goal of delivering lasting value. You&apos;ll always know what&apos;s being built, why, and how.
               </p>
             </div>
             
-            {/* 3. Features/Deliverables - Aligned List */}
-            <div className="flex-1 space-y-3 mb-8">
-              <p className="text-white font-semibold mb-4 text-lg border-b border-white/10 pb-2">Key Deliverables</p>
-              <ul className="space-y-3">
-                {offering.deliverables.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    {/* Checkmark icon for modern clarity */}
-                    <svg
-                      className="mt-1.5 w-4 h-4 text-cyan-400 flex-shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-gray-300 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* 4. Action Button - Stays at the bottom */}
-            <div className="text-center mt-auto pt-6 border-t border-white/10">
-              <a
-                href="#"
-                className="inline-block w-full rounded-full bg-cyan-600/20 px-8 py-3 font-semibold text-cyan-400 shadow-md transition-all duration-300 hover:bg-cyan-600 hover:text-white"
-              >
-                Start Project
-              </a>
-            </div>
-          </article>
-        ))}
+            <ul className="space-y-6">
+              {collaborationValues.map((value, index) => (
+                <li key={index} className="flex items-start gap-4">
+                  <div className="rounded-lg bg-cyan-500/10 p-1.5 mt-0.5 flex-shrink-0">
+                    <CheckCircle2 className="h-5 w-5 text-cyan-400" />
+                  </div>
+                  <span className="text-base sm:text-lg leading-relaxed text-white/80">
+                    {value}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
       </section>
 
-      {/* Collaboration Values (Unchanged, already well-aligned) */}
-      <section 
-        className="max-w-7xl mx-auto grid gap-10 rounded-xl border border-white/10 bg-transparent p-12 lg:grid-cols-2 shadow-xl"
-      >
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-white flex items-center space-x-2">
-            <span>Collaboration Values</span>
-          </h2>
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Every project is built on **communication, transparency**, and a shared
-            goal of delivering lasting value. You'll always know what's being
-            built, why, and how.
-          </p>
+      {/* Contact CTA - Enhanced */}
+      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-12 text-center backdrop-blur-sm sm:p-16 max-w-7xl mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5" />
+        
+        <div className="relative z-10 space-y-8">
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+              Ready to build your next intelligent system?
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-white/80">
+              Let&apos;s discuss your goals and create a custom roadmap that fits your vision — whether it&apos;s web, mobile, AI, or research-based innovation.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/40"
+            >
+              Start the Conversation
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/50 hover:bg-white/10"
+            >
+              View Projects
+            </Link>
+          </div>
         </div>
-        <ul className="space-y-6">
-          {collaborationValues.map((value) => (
-            <li key={value} className="flex items-start gap-4">
-              <svg
-                className="mt-1.5 w-5 h-5 text-blue-400 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="text-gray-300 text-lg">{value}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Contact CTA (Unchanged, already well-aligned) */}
-      <section 
-        className="max-w-4xl mx-auto rounded-xl border border-white/10 bg-transparent p-12 text-center shadow-xl"
-      >
-        <h2 className="text-3xl font-bold text-white mb-4">
-          Ready to start a project or collaborate?
-        </h2>
-        <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-          Let's discuss your goals and create a custom roadmap that fits your
-          vision — whether it's web, mobile, AI, or research-based innovation.
-        </p>
-        <Link
-          href="/contact"
-          className="inline-block rounded-full bg-cyan-500 px-10 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:bg-cyan-400 hover:shadow-cyan-500/50"
-        >
-          Contact Me
-        </Link>
       </section>
 
       {/* Footer Note */}
-      <div className="text-center text-gray-500 text-sm max-w-4xl mx-auto pt-8 border-t border-gray-800">
-        <p>
-          Prices are listed in USD. The final total will be confirmed upon project scope agreement.
-        </p>
+      <div className="max-w-7xl mx-auto text-center">
+        <div className="rounded-xl border border-white/10 bg-[#0F1016]/50 p-6 backdrop-blur-sm">
+          <p className="text-sm text-white/60">
+            Prices are listed in USD. The final total will be confirmed upon project scope agreement.
+          </p>
+        </div>
       </div>
     </div>
   );
