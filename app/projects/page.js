@@ -37,7 +37,7 @@ const projectSections = [
         technologies: ["Next.js", "Node.js", "PostgreSQL", "Machine Learning", "Flutter"],
         githubLink: "https://github.com/hossaintaufiq/JustKaaj",
         liveLink: "https://www.justkaaj.com/",
-        thumbnail: "/images/placeholder-project1.png",
+        thumbnail: "/images/projects/Justkaaj.png",
       },
        {
         id: "P002",
@@ -55,11 +55,11 @@ const projectSections = [
         ],
         githubLink: "https://github.com/hossain-taufiq/acumens",
         liveLink: "#",
-        thumbnail: "/images/placeholder-project2.png",
+        thumbnail: "/images/projects/AgroTech.png",
       },
        {
         id: "P003",
-        name: "CRMPrime(An Ai powered CRM)", // Unique Name
+        name: "CRMPrime(An Ai powered CRM Web and App)", // Unique Name
         summary:
           "Developed a full-stack React.js application integrated with MongoDB and RESTful APIs to automate and optimize digital content delivery and analytics.",
         impact:
@@ -73,7 +73,7 @@ const projectSections = [
         ],
         githubLink: "https://github.com/hossain-taufiq/acumens",
         liveLink: "#",
-        thumbnail: "/images/placeholder-project2.png",
+        thumbnail: "/images/projects/CRMPrime.png",
       },
       {
         id: "P004",
@@ -110,7 +110,7 @@ const projectSections = [
         ],
         githubLink: "https://github.com/hossaintaufiq/Ai_Doctor",
         liveLink: "#",
-        thumbnail: "/images/placeholder-project2.png",
+        thumbnail: "/images/projects/AiDoctor.png",
       },
      
        {
@@ -129,7 +129,7 @@ const projectSections = [
         ],
         githubLink: "https://github.com/hossain-taufiq/acumens",
         liveLink: "#",
-        thumbnail: "/images/placeholder-project2.png",
+        thumbnail: "/images/projects/aisummary.png",
       },
       {
         id: "P007",
@@ -147,7 +147,7 @@ const projectSections = [
         ],
         githubLink: "https://github.com/hossain-taufiq/acumens",
         liveLink: "#",
-        thumbnail: "/images/placeholder-project2.png",
+        thumbnail: "/images/projects/aiInterview.png",
       },
     ],
   },
