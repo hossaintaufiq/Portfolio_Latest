@@ -153,51 +153,52 @@ developer.build("Your Next Project");`;
   return (
     <div className="flex flex-col gap-24 pb-16">
       {/* Hero Section */}
-      <section className="flex flex-col gap-8 rounded-2xl border border-white/5 bg-black/30 p-8 sm:p-12">
-        {/* Part 1: Text Content */}
-        <div className="space-y-6">
-          <div className="space-y-3">
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Hossain Ahmmed
-            </h1>
-            <p className="text-lg font-medium text-white/80 sm:text-xl">
-              Full-Stack Developer • App Developer • AI/ML Researcher
+      <section className="rounded-2xl border border-white/5 bg-black/30 p-8 sm:p-12">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+          {/* Part 1: Text Content - Left Side */}
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Hossain Ahmmed
+              </h1>
+              <p className="text-lg font-medium text-white/80 sm:text-xl">
+                Full-Stack Developer • App Developer • AI/ML Researcher
+              </p>
+              <p className="text-base text-cyan-400/80 sm:text-lg">
+                Founder & CEO — Neptune Software Solutions
+              </p>
+            </div>
+
+            <p className="text-base leading-relaxed text-white/70 sm:text-lg">
+              I build powerful web apps, mobile apps, and intelligent systems that solve real-world problems.
             </p>
-            <p className="text-base text-cyan-400/80 sm:text-lg">
-              Founder & CEO — Neptune Software Solutions
-            </p>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href="/projects"
+                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-cyan-600"
+              >
+                View My Projects
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
+              >
+                <Download className="h-4 w-4" />
+                Download CV
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-500/20"
+              >
+                Contact Me
+              </Link>
+            </div>
           </div>
 
-          <p className="max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
-            I build powerful web apps, mobile apps, and intelligent systems that solve real-world problems.
-          </p>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link
-              href="/projects"
-              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-cyan-600"
-            >
-              View My Projects
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
-            >
-              <Download className="h-4 w-4" />
-              Download CV
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-500/20"
-            >
-              Contact Me
-            </Link>
-          </div>
-        </div>
-
-        {/* Part 2: Code Display */}
-        <div className="rounded-lg border border-white/10 bg-[#0a0a0f] p-6 font-mono text-sm">
+          {/* Part 2: Code Display - Right Side */}
+          <div className="rounded-lg border border-white/10 bg-[#0a0a0f] p-6 font-mono text-sm">
           <div className="mb-4 flex items-center gap-2">
             <div className="h-3 w-3 rounded-full bg-red-500/80"></div>
             <div className="h-3 w-3 rounded-full bg-yellow-500/80"></div>
@@ -276,6 +277,7 @@ developer.build("Your Next Project");`;
               })}
             </code>
           </pre>
+          </div>
         </div>
       </section>
 
