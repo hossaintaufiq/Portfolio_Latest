@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/research", label: "Research" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
+  { href: "/chatbot", label: "Bot" },
 ];
 
 export default function Navbar() {
@@ -61,11 +62,11 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#0B0C10]/90 backdrop-blur-xl shadow-lg shadow-black/20">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
         {/* Brand Logo */}
         <Link
           href="/"
-          className="group relative flex items-center gap-2 text-lg font-bold tracking-tight transition-all duration-300 sm:text-xl"
+          className="group relative flex items-center gap-2 text-base font-bold tracking-tight transition-all duration-300 sm:text-lg lg:text-xl"
           onClick={closeMenu}
         >
           <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-300 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:via-blue-300 group-hover:to-purple-300 transition-all duration-300">
@@ -77,14 +78,14 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-1 text-sm font-medium md:flex lg:gap-2">
+        <nav className="hidden items-center gap-0.5 text-xs font-medium sm:flex sm:gap-1 sm:text-sm lg:gap-2 lg:text-sm">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-full px-4 py-2 transition-all duration-300 lg:px-5 ${
+                className={`whitespace-nowrap rounded-full px-2 py-1.5 transition-all duration-300 sm:px-2.5 sm:py-2 lg:px-4 lg:py-2 ${
                   active
                     ? "text-white bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30"
                     : "text-white/70 hover:text-white hover:bg-white/10"
@@ -99,22 +100,22 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
-          className="relative z-50 flex flex-col items-center justify-center gap-1.5 rounded-lg p-2 text-white/80 transition-all duration-300 hover:bg-white/10 hover:text-white md:hidden"
+          className="relative z-50 flex flex-col items-center justify-center gap-1.5 rounded-lg p-2 text-white/80 transition-all duration-300 hover:bg-white/10 hover:text-white sm:hidden"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
           <span
-            className={`h-0.5 w-6 origin-center rounded-full bg-current transition-all duration-300 ${
+            className={`h-0.5 w-5 origin-center rounded-full bg-current transition-all duration-300 ${
               isOpen ? "translate-y-2 rotate-45" : ""
             }`}
           />
           <span
-            className={`h-0.5 w-6 origin-center rounded-full bg-current transition-all duration-300 ${
+            className={`h-0.5 w-5 origin-center rounded-full bg-current transition-all duration-300 ${
               isOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`h-0.5 w-6 origin-center rounded-full bg-current transition-all duration-300 ${
+            className={`h-0.5 w-5 origin-center rounded-full bg-current transition-all duration-300 ${
               isOpen ? "-translate-y-2 -rotate-45" : ""
             }`}
           />
@@ -123,11 +124,11 @@ export default function Navbar() {
 
       {/* Mobile Navigation Menu */}
       <nav
-        className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        className={`overflow-hidden transition-all duration-300 ease-in-out sm:hidden ${
+          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-1 border-t border-white/10 bg-[#0B0C10]/98 px-4 py-4 backdrop-blur-xl lg:px-8">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-1 border-t border-white/10 bg-[#0B0C10]/98 px-4 py-4 backdrop-blur-xl">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
@@ -135,7 +136,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className={`rounded-lg px-4 py-3 text-base font-medium transition-all duration-300 ${
+                className={`rounded-lg px-4 py-3 text-sm font-medium transition-all duration-300 ${
                   active
                     ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white border border-cyan-500/30"
                     : "text-white/70 hover:bg-white/10 hover:text-white"
@@ -151,7 +152,7 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm sm:hidden"
           onClick={closeMenu}
           aria-hidden="true"
         />
