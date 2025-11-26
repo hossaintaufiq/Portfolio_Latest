@@ -111,19 +111,19 @@ export default function ContactClientPage() {
           </div>
 
           {isSubmitted && (
-            <div className="rounded-lg border border-green-500/30 bg-green-500/10 p-4 flex items-center gap-3">
-              <CheckCircle2 className="h-5 w-5 text-green-400 flex-shrink-0" />
-              <p className="text-sm text-green-300">
+            <div className="rounded-lg border border-green-500/30 bg-green-500/10 p-3 sm:p-4 flex items-center gap-2 sm:gap-3">
+              <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-green-400 flex-shrink-0" />
+              <p className="text-xs sm:text-sm text-green-300">
                 Message sent successfully! I&apos;ll get back to you soon.
               </p>
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-white/80 mb-2"
+                className="block text-xs sm:text-sm font-medium text-white/80 mb-1.5 sm:mb-2"
               >
                 Full Name <span className="text-cyan-400">*</span>
               </label>
@@ -135,14 +135,14 @@ export default function ContactClientPage() {
                 onChange={handleChange}
                 required
                 placeholder="John Doe"
-                className="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-200"
+                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-200 text-sm sm:text-base"
               />
             </div>
 
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-white/80 mb-2"
+                className="block text-xs sm:text-sm font-medium text-white/80 mb-1.5 sm:mb-2"
               >
                 Email Address <span className="text-cyan-400">*</span>
               </label>
@@ -154,14 +154,14 @@ export default function ContactClientPage() {
                 onChange={handleChange}
                 required
                 placeholder="john@company.com"
-                className="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-200"
+                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-200 text-sm sm:text-base"
               />
             </div>
 
             <div>
               <label
                 htmlFor="company"
-                className="block text-sm font-medium text-white/80 mb-2"
+                className="block text-xs sm:text-sm font-medium text-white/80 mb-1.5 sm:mb-2"
               >
                 Company / Organization
               </label>
@@ -172,14 +172,14 @@ export default function ContactClientPage() {
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Your Company Name"
-                className="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-200"
+                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-200 text-sm sm:text-base"
               />
             </div>
 
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-white/80 mb-2"
+                className="block text-xs sm:text-sm font-medium text-white/80 mb-1.5 sm:mb-2"
               >
                 Message <span className="text-cyan-400">*</span>
               </label>
@@ -189,16 +189,16 @@ export default function ContactClientPage() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows="6"
+                rows="5"
                 placeholder="Tell me about your project, goals, timeline, or any questions you have..."
-                className="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 resize-y focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-200"
+                className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 resize-y focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-200 text-sm sm:text-base sm:rows-6"
               />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full group inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full group inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-500 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:bg-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
@@ -216,30 +216,30 @@ export default function ContactClientPage() {
         </div>
 
         {/* Right: Contact Information */}
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {/* Availability Status */}
-          <div className="rounded-2xl border border-white/5 bg-black/30 p-6">
-            <div className="mb-4 flex items-center gap-2">
+          <div className="rounded-xl sm:rounded-2xl border border-white/5 bg-black/30 p-4 sm:p-6">
+            <div className="mb-3 sm:mb-4 flex items-center gap-2">
               <div className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
-              <span className="text-sm font-semibold text-green-400">
+              <span className="text-xs sm:text-sm font-semibold text-green-400">
                 {availability.status}
               </span>
             </div>
-            <div className="space-y-3 text-sm text-white/70">
-              <div className="flex items-center gap-3">
-                <FaClock className="h-4 w-4 text-cyan-400" />
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-white/70">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <FaClock className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-400 flex-shrink-0" />
                 <span>{availability.responseTime}</span>
               </div>
-              <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="h-4 w-4 text-cyan-400" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <FaMapMarkerAlt className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-400 flex-shrink-0" />
                 <span>{availability.location}</span>
               </div>
             </div>
           </div>
 
           {/* Contact Methods */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold text-white">Contact Methods</h3>
+          <div className="space-y-3 sm:space-y-4">
+            <h3 className="text-base sm:text-lg font-bold text-white">Contact Methods</h3>
             {contactInfo.map((contact, index) => {
               const Icon = contact.icon;
               return (
@@ -248,62 +248,62 @@ export default function ContactClientPage() {
                   href={contact.href}
                   target={contact.href.startsWith('http') ? '_blank' : undefined}
                   rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-5 transition-all duration-300 hover:border-cyan-500/50 hover:bg-white/10"
+                  className="group flex items-center gap-3 sm:gap-4 rounded-xl border border-white/10 bg-white/5 p-4 sm:p-5 transition-all duration-300 hover:border-cyan-500/50 hover:bg-white/10"
                 >
-                  <div className={`rounded-lg bg-cyan-500/10 p-3 group-hover:scale-110 transition-transform`}>
-                    <Icon className={`h-5 w-5 text-cyan-400`} />
+                  <div className={`rounded-lg bg-cyan-500/10 p-2.5 sm:p-3 group-hover:scale-110 transition-transform flex-shrink-0`}>
+                    <Icon className={`h-4 w-4 sm:h-5 sm:w-5 text-cyan-400`} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs uppercase tracking-wider text-white/50 mb-1">
+                    <p className="text-[10px] sm:text-xs uppercase tracking-wider text-white/50 mb-0.5 sm:mb-1">
                       {contact.label}
                     </p>
-                    <p className="text-sm font-semibold text-white truncate group-hover:text-cyan-300 transition-colors">
+                    <p className="text-xs sm:text-sm font-semibold text-white truncate group-hover:text-cyan-300 transition-colors">
                       {contact.value}
                     </p>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-white/40 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                  <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white/40 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all flex-shrink-0" />
                 </a>
               );
             })}
           </div>
 
           {/* Why Work With Me */}
-          <div className="rounded-2xl border border-white/5 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-6">
-            <div className="mb-4 flex items-center gap-2">
-              <Briefcase className="h-5 w-5 text-cyan-400" />
-              <h3 className="text-lg font-bold text-white">Why Work With Me?</h3>
+          <div className="rounded-xl sm:rounded-2xl border border-white/5 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-4 sm:p-6">
+            <div className="mb-3 sm:mb-4 flex items-center gap-2">
+              <Briefcase className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400 flex-shrink-0" />
+              <h3 className="text-base sm:text-lg font-bold text-white">Why Work With Me?</h3>
             </div>
-            <ul className="space-y-3 text-sm text-white/80">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-white/80">
+              <li className="flex items-start gap-2 sm:gap-3">
+                <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <span>3+ years of professional development experience</span>
               </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <li className="flex items-start gap-2 sm:gap-3">
+                <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <span>Full-stack expertise: MERN, Django, React Native</span>
               </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <li className="flex items-start gap-2 sm:gap-3">
+                <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <span>AI/ML research background in RAG & LLMs</span>
               </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <li className="flex items-start gap-2 sm:gap-3">
+                <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <span>Proven track record: 10+ projects delivered</span>
               </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="h-4 w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <li className="flex items-start gap-2 sm:gap-3">
+                <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <span>Startup founder with product-building experience</span>
               </li>
             </ul>
           </div>
 
           {/* Code Snippet Decoration */}
-          <div className="rounded-lg border border-white/10 bg-[#0a0a0f] p-4 font-mono text-xs">
-            <div className="mb-3 flex items-center gap-2">
-              <Code className="h-3 w-3 text-cyan-400" />
+          <div className="rounded-lg border border-white/10 bg-[#0a0a0f] p-3 sm:p-4 font-mono text-[10px] sm:text-xs">
+            <div className="mb-2 sm:mb-3 flex items-center gap-1.5 sm:gap-2">
+              <Code className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-cyan-400" />
               <span className="text-cyan-400">contact.js</span>
             </div>
-            <div className="space-y-1 text-white/70">
+            <div className="space-y-0.5 sm:space-y-1 text-white/70">
               <div>
                 <span className="text-purple-400">const</span>{" "}
                 <span className="text-cyan-400">connect</span>{" "}
@@ -312,7 +312,7 @@ export default function ContactClientPage() {
                 <span className="text-white">()</span>{" "}
                 <span className="text-white">=&gt;</span> {"{"}
               </div>
-              <div className="pl-4">
+              <div className="pl-3 sm:pl-4">
                 <span className="text-green-400">return</span>{" "}
                 <span className="text-white">collaboration</span>
                 <span className="text-white">;</span>
@@ -324,26 +324,26 @@ export default function ContactClientPage() {
       </div>
 
       {/* Call to Action Section */}
-      <div className="rounded-2xl border border-white/5 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-8 sm:p-12 text-center">
-        <Sparkles className="mx-auto h-12 w-12 text-cyan-400 mb-4" />
-        <h2 className="text-2xl font-bold text-white mb-3 sm:text-3xl">
+      <div className="rounded-xl sm:rounded-2xl border border-white/5 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-6 sm:p-8 md:p-10 lg:p-12 text-center">
+        <Sparkles className="mx-auto h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-cyan-400 mb-3 sm:mb-4" />
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3">
           Ready to Start Your Project?
         </h2>
-        <p className="mx-auto max-w-2xl text-base text-white/70 mb-6 sm:text-lg">
+        <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-white/70 mb-4 sm:mb-6 px-4">
           Whether you&apos;re looking to build a web application, mobile app, or integrate AI capabilities, 
           I&apos;m here to help bring your vision to life.
         </p>
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row">
           <a
             href="mailto:hossain.taufiq@northsouth.edu"
-            className="group inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-cyan-600"
+            className="group inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:bg-cyan-600"
           >
             Schedule a Call
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
           >
             View My Work
           </a>

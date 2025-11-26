@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <ThreeBlackHole/>
         
-        <main className="mx-auto flex min-h-[calc(100vh-96px)] w-full max-w-6xl flex-col px-4 py-12 sm:px-6 sm:py-16">
+        <main className="mx-auto flex min-h-[calc(100vh-96px)] w-full max-w-6xl flex-col px-3 py-8 sm:px-4 sm:py-12 md:px-6 md:py-16">
           {children}
         </main>
         <Footer />

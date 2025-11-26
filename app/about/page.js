@@ -257,27 +257,27 @@ export default function AboutPage() {
           {milestones.map((milestone, index) => (
             <div
               key={milestone.year}
-              className="group relative overflow-hidden flex flex-col gap-3 sm:gap-4 rounded-2xl sm:rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-4 sm:p-6 md:flex-row md:items-center md:justify-between backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/10"
+              className="group relative overflow-hidden flex flex-col gap-3 sm:gap-4 rounded-xl sm:rounded-2xl md:rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-4 sm:p-5 md:p-6 md:flex-row md:items-center md:justify-between backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/10"
             >
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               
-              <div className="relative z-10 flex items-center gap-3 sm:gap-4">
-                <div className="flex-shrink-0 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 p-2 sm:p-3 group-hover:scale-110 transition-transform">
-                  <span className="text-xl font-bold text-cyan-400 sm:text-2xl">
+              <div className="relative z-10 flex items-center gap-2 sm:gap-3 md:gap-4">
+                <div className="flex-shrink-0 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 p-1.5 sm:p-2 md:p-3 group-hover:scale-110 transition-transform">
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-cyan-400">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <div className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-400/80 sm:text-sm">
+                <div className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-cyan-400/80">
                   {milestone.year}
                 </div>
               </div>
               
-              <div className="relative z-10 max-w-2xl space-y-1.5 sm:space-y-2 flex-1">
-                <h3 className="text-lg font-bold tracking-tight text-white sm:text-xl">
+              <div className="relative z-10 max-w-2xl space-y-1 sm:space-y-1.5 sm:space-y-2 flex-1">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold tracking-tight text-white">
                   {milestone.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-white/70 sm:text-base">{milestone.description}</p>
+                <p className="text-xs sm:text-sm md:text-base leading-relaxed text-white/70">{milestone.description}</p>
               </div>
             </div>
           ))}

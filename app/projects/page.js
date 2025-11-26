@@ -444,7 +444,7 @@ const projectSections = [
 function ProjectCard({ project }) {
   return (
     <article
-      className="relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10
+      className="relative flex h-full flex-col overflow-hidden rounded-lg sm:rounded-xl border border-white/10
                  bg-black/30
                  shadow-lg transition-all duration-300 ease-in-out
                  hover:scale-[1.02] hover:border-cyan-400/20 hover:shadow-cyan-400/10
@@ -452,7 +452,7 @@ function ProjectCard({ project }) {
     >
       {/* Top Section: Thumbnail and Links */}
       <div
-        className="relative h-40 w-full overflow-hidden rounded-t-xl sm:h-48
+        className="relative h-36 w-full overflow-hidden rounded-t-lg sm:rounded-t-xl sm:h-40 md:h-48
                    bg-gradient-to-br from-purple-800/60 via-blue-800/60 to-indigo-800/60
                    border-b border-white/10"
       >
@@ -465,7 +465,7 @@ function ProjectCard({ project }) {
           />
         )}
 
-        <div className="absolute top-3 right-3 flex gap-2 z-10 sm:top-4 sm:right-4 sm:gap-3">
+        <div className="absolute top-2 right-2 flex gap-1.5 z-10 sm:top-3 sm:right-3 sm:gap-2 md:top-4 md:right-4 md:gap-3">
           {project.githubLink && (
             <a
               href={project.githubLink}
@@ -474,7 +474,7 @@ function ProjectCard({ project }) {
               className="p-1.5 rounded-full bg-white/15 text-white/90 hover:bg-white/25 hover:text-white transition-colors duration-200 sm:p-2"
               aria-label="GitHub Repository"
             >
-              <FaGithub size={16} className="sm:w-5 sm:h-5" />
+              <FaGithub size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
             </a>
           )}
           {project.liveLink && project.liveLink !== "#" && (
@@ -485,28 +485,28 @@ function ProjectCard({ project }) {
               className="p-1.5 rounded-full bg-white/15 text-white/90 hover:bg-white/25 hover:text-white transition-colors duration-200 sm:p-2"
               aria-label="Live Website"
             >
-              <FaExternalLinkAlt size={16} className="sm:w-5 sm:h-5" />
+              <FaExternalLinkAlt size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
             </a>
           )}
         </div>
       </div>
 
       {/* Bottom Section: Details and Tags */}
-      <div className="flex flex-col flex-grow p-4 space-y-3 sm:p-6 sm:space-y-4">
-        <h3 className="text-lg font-semibold tracking-tight text-white sm:text-xl md:text-2xl">
+      <div className="flex flex-col flex-grow p-3 space-y-2 sm:p-4 sm:space-y-3 md:p-6 md:space-y-4">
+        <h3 className="text-base font-semibold tracking-tight text-white sm:text-lg md:text-xl lg:text-2xl line-clamp-2">
           {project.name}
         </h3>
-        <p className="text-sm text-white/70 flex-grow sm:text-base">{project.summary}</p>
+        <p className="text-xs text-white/70 flex-grow sm:text-sm md:text-base line-clamp-3">{project.summary}</p>
 
         {/* Technologies (Tags with random coloring) */}
         {project.technologies && project.technologies.length > 0 && (
-          <div className="mt-auto flex flex-wrap gap-1.5 pt-3 border-t border-white/5 sm:gap-2 sm:pt-4">
+          <div className="mt-auto flex flex-wrap gap-1 pt-2 border-t border-white/5 sm:gap-1.5 sm:pt-3 md:gap-2 md:pt-4">
             {project.technologies.map((tech, index) => {
               const { bg, text } = getRandomTagColor();
               return (
                 <span
                   key={tech + index}
-                  className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${bg} ${text} sm:px-3 sm:py-1 sm:text-xs`}
+                  className={`rounded-full px-1.5 py-0.5 text-[9px] font-medium ${bg} ${text} sm:px-2 sm:py-0.5 sm:text-[10px] md:px-3 md:py-1 md:text-xs`}
                 >
                   #{tech.toLowerCase().replace(/[^a-z0-9]/g, "")}
                 </span>
@@ -522,13 +522,13 @@ function ProjectCard({ project }) {
 // --- Main ProjectsPage Component (Fixed) ---
 export default function ProjectsPage() {
   return (
-    <div className="space-y-12 sm:space-y-16 max-w-7xl mx-auto">
+    <div className="space-y-8 sm:space-y-12 md:space-y-16 max-w-7xl mx-auto">
       {/* Header */}
-      <section className="space-y-4 sm:space-y-6 text-center">
-        <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+      <section className="space-y-3 sm:space-y-4 md:space-y-6 text-center px-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
           Projects
         </h1>
-        <p className="max-w-3xl text-sm text-white/70 mx-auto sm:text-base md:text-lg">
+        <p className="max-w-3xl text-xs sm:text-sm md:text-base lg:text-lg text-white/70 mx-auto">
           A selection of full-stack, AI, and research projects showcasing my work across machine learning, data
           analysis, and scalable web application development. Each project
           reflects a balance between innovation, technical precision, and
@@ -537,19 +537,19 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <div className="space-y-10 sm:space-y-12">
+      <div className="space-y-8 sm:space-y-10 md:space-y-12">
         {projectSections.map((section) => (
-          <section key={section.category} className="space-y-6 sm:space-y-8">
-            <div className="flex flex-col gap-1.5 sm:gap-2">
-              <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+          <section key={section.category} className="space-y-4 sm:space-y-6 md:space-y-8">
+            <div className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 px-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-white">
                 {section.category}
               </h2>
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-400/80 sm:text-sm">
+              <p className="text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.3em] text-cyan-400/80">
                 SELECTED WORK
               </p>
             </div>
-            <hr className="border-white/50" />
-            <div className="grid gap-6 sm:gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <hr className="border-white/50 mx-4" />
+            <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4">
               {section.items.map((item) => (
                 <ProjectCard key={item.id} project={item} />
               ))}
@@ -559,11 +559,11 @@ export default function ProjectsPage() {
       </div>
 
       {/* Footer Note */}
-      <section className="rounded-xl border border-white/10 bg-[#0F1016] p-6 text-center sm:p-8">
-        <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+      <section className="rounded-lg sm:rounded-xl border border-white/10 bg-[#0F1016] p-4 sm:p-6 md:p-8 text-center mx-4">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight text-white">
           Want to learn more about a specific project?
         </h2>
-        <p className="mt-2 sm:mt-3 text-sm text-white/70 sm:text-base md:text-lg">
+        <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base lg:text-lg text-white/70">
           Detailed case studies, architecture diagrams, and code samples are
           available upon request for collaboration or professional review.
         </p>
