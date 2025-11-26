@@ -122,10 +122,21 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Menu Overlay - Behind menu */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm sm:hidden"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile Navigation Menu */}
       <nav
-        className={`overflow-hidden transition-all duration-300 ease-in-out sm:hidden ${
-          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+        className={`relative z-50 overflow-hidden transition-all duration-300 ease-in-out sm:hidden ${
+          isOpen 
+            ? "max-h-[600px] opacity-100" 
+            : "max-h-0 opacity-0 pointer-events-none"
         }`}
       >
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-1 border-t border-white/10 bg-[#0B0C10]/98 px-4 py-4 backdrop-blur-xl">
@@ -148,15 +159,6 @@ export default function Navbar() {
           })}
         </div>
       </nav>
-
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm sm:hidden"
-          onClick={closeMenu}
-          aria-hidden="true"
-        />
-      )}
     </header>
   );
 }
