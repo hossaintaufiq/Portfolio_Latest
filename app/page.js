@@ -151,46 +151,46 @@ const developer = {
 developer.build("Your Next Project");`;
 
   return (
-    <div className="flex flex-col gap-24 pb-16">
+    <div className="flex flex-col gap-16 pb-12 sm:gap-20 sm:pb-16 lg:gap-24">
       {/* Hero Section */}
-      <section className="rounded-2xl border border-white/5 bg-black/30 p-8 sm:p-12">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+      <section className="rounded-xl border border-white/5 bg-black/30 p-4 sm:p-6 md:p-8 lg:p-12">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
           {/* Part 1: Text Content - Left Side */}
-          <div className="space-y-6">
-            <div className="space-y-3">
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <div className="space-y-4 sm:space-y-5 lg:space-y-6">
+            <div className="space-y-2 sm:space-y-3">
+              <h1 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
                 Hossain Ahmmed
               </h1>
-              <p className="text-lg font-medium text-white/80 sm:text-xl">
+              <p className="text-base font-medium text-white/80 sm:text-lg md:text-xl">
                 Full-Stack Developer • App Developer • AI/ML Researcher
               </p>
-              <p className="text-base text-cyan-400/80 sm:text-lg">
+              <p className="text-sm text-cyan-400/80 sm:text-base md:text-lg">
                 Founder & CEO — Neptune Software Solutions
               </p>
             </div>
 
-            <p className="text-base leading-relaxed text-white/70 sm:text-lg">
+            <p className="text-sm leading-relaxed text-white/70 sm:text-base md:text-lg">
               I build powerful web apps, mobile apps, and intelligent systems that solve real-world problems.
             </p>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
               <Link
                 href="/projects"
-                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-cyan-600"
+                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-500 px-5 py-2.5 text-xs font-semibold text-white transition-all duration-300 hover:bg-cyan-600 sm:px-6 sm:py-3 sm:text-sm"
               >
                 View My Projects
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-2.5 text-xs font-semibold text-white transition-all duration-300 hover:bg-white/10 sm:px-6 sm:py-3 sm:text-sm"
               >
-                <Download className="h-4 w-4" />
+                <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 Download CV
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-500/20"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-5 py-2.5 text-xs font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-500/20 sm:px-6 sm:py-3 sm:text-sm"
               >
                 Contact Me
               </Link>
@@ -198,23 +198,23 @@ developer.build("Your Next Project");`;
           </div>
 
           {/* Part 2: Code Display - Right Side */}
-          <div className="rounded-lg border border-white/10 bg-[#0a0a0f] p-6 font-mono text-sm">
-          <div className="mb-4 flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-red-500/80"></div>
-            <div className="h-3 w-3 rounded-full bg-yellow-500/80"></div>
-            <div className="h-3 w-3 rounded-full bg-green-500/80"></div>
-            <span className="ml-4 text-xs text-white/50">index.js</span>
+          <div className="rounded-lg border border-white/10 bg-[#0a0a0f] p-3 sm:p-4 md:p-5 lg:p-6 font-mono text-xs sm:text-sm">
+          <div className="mb-3 flex items-center gap-1.5 sm:mb-4 sm:gap-2">
+            <div className="h-2 w-2 rounded-full bg-red-500/80 sm:h-3 sm:w-3"></div>
+            <div className="h-2 w-2 rounded-full bg-yellow-500/80 sm:h-3 sm:w-3"></div>
+            <div className="h-2 w-2 rounded-full bg-green-500/80 sm:h-3 sm:w-3"></div>
+            <span className="ml-2 text-[10px] text-white/50 sm:ml-4 sm:text-xs">index.js</span>
           </div>
-          <pre className="overflow-x-auto">
-            <code className="text-white/90">
+          <pre className="overflow-x-auto -mx-1 px-1 sm:mx-0 sm:px-0 scrollbar-thin scrollbar-thumb-cyan-500/20 scrollbar-track-transparent">
+            <code className="block text-white/90">
               {codeSnippet.split('\n').map((line, index) => {
                 const isComment = line.trim().startsWith('//');
                 
                 if (isComment) {
                   return (
-                    <div key={index} className="flex min-h-6">
-                      <span className="select-none text-white/20 pr-4">{String(index + 1).padStart(2, '0')}</span>
-                      <span className="flex-1 text-gray-500">{line}</span>
+                    <div key={index} className="flex min-h-5 sm:min-h-6">
+                      <span className="select-none text-white/20 pr-2 text-[10px] sm:pr-4 sm:text-xs">{String(index + 1).padStart(2, '0')}</span>
+                      <span className="flex-1 text-gray-500 break-words sm:break-normal">{line}</span>
                     </div>
                   );
                 }
@@ -269,9 +269,9 @@ developer.build("Your Next Project");`;
                 };
                 
                 return (
-                  <div key={index} className="flex min-h-6">
-                    <span className="select-none text-white/20 pr-4">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="flex-1 whitespace-pre">{highlightJS(line)}</span>
+                  <div key={index} className="flex min-h-5 sm:min-h-6">
+                    <span className="select-none text-white/20 pr-2 text-[10px] sm:pr-4 sm:text-xs">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="flex-1 whitespace-pre break-words sm:break-normal">{highlightJS(line)}</span>
                   </div>
                 );
               })}
