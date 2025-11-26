@@ -97,12 +97,14 @@ const techStack = {
 };
 
 function AnimatedNumber({ value, suffix = "" }) {
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState(() => {
+    const numValue = parseInt(value) || 0;
+    return isNaN(numValue) || numValue === 0 ? value : 0;
+  });
   const numValue = parseInt(value) || 0;
 
   useEffect(() => {
     if (isNaN(numValue) || numValue === 0) {
-      setDisplayValue(value);
       return;
     }
     const duration = 2000;
@@ -120,7 +122,7 @@ function AnimatedNumber({ value, suffix = "" }) {
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [numValue, value]);
+  }, [numValue]);
 
   return (
     <span>
@@ -131,90 +133,149 @@ function AnimatedNumber({ value, suffix = "" }) {
 }
 
 export default function Home() {
+  const codeSnippet = `// Building intelligent systems
+const developer = {
+  name: "Hossain Ahmmed",
+  role: "Full-Stack Developer",
+  expertise: [
+    "MERN Stack",
+    "React Native",
+    "AI/ML Research"
+  ],
+  company: "Neptune Software Solutions",
+  build: (project) => {
+    return solveRealWorldProblems(project);
+  }
+};
+
+developer.build("Your Next Project");`;
+
   return (
     <div className="flex flex-col gap-24 pb-16">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-black/50 via-[#0a0a0f]/50 to-[#1a1a2e]/50">
-        {/* Video background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-10"
-        >
-          <source src="/videos/blackhole.webm" type="video/webm" />
-        </video>
-        
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-[#1B2237]/80" />
-        
-        <div className="relative z-10 flex flex-col gap-12 p-8 sm:p-12 lg:p-16">
-          <div className="flex flex-col gap-12 lg:grid lg:grid-cols-[1.2fr,0.8fr] lg:items-center lg:gap-16">
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-                  <span className="bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent">
-                    Hossain Ahmmed
-                  </span>
-                </h1>
-                <p className="text-lg font-medium text-white/90 sm:text-xl">
-                  Full-Stack Developer • App Developer • AI/ML Researcher
-                </p>
-                <p className="text-base text-cyan-300/80 sm:text-lg">
-                  Founder & CEO — Neptune Software Solutions
-                </p>
-              </div>
+      <section className="flex flex-col gap-8 rounded-2xl border border-white/5 bg-black/30 p-8 sm:p-12">
+        {/* Part 1: Text Content */}
+        <div className="space-y-6">
+          <div className="space-y-3">
+            <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Hossain Ahmmed
+            </h1>
+            <p className="text-lg font-medium text-white/80 sm:text-xl">
+              Full-Stack Developer • App Developer • AI/ML Researcher
+            </p>
+            <p className="text-base text-cyan-400/80 sm:text-lg">
+              Founder & CEO — Neptune Software Solutions
+            </p>
+          </div>
 
-              <p className="max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
-                I build powerful web apps, mobile apps, and intelligent systems that solve real-world problems.
-              </p>
+          <p className="max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+            I build powerful web apps, mobile apps, and intelligent systems that solve real-world problems.
+          </p>
 
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link
-                  href="/projects"
-                  className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
-                >
-                  View My Projects
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
-                >
-                  <Download className="h-4 w-4" />
-                  Download CV
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-500/20"
-                >
-                  Contact Me
-                </Link>
-              </div>
-            </div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              href="/projects"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-cyan-600"
+            >
+              View My Projects
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
+            >
+              <Download className="h-4 w-4" />
+              Download CV
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-500/20"
+            >
+              Contact Me
+            </Link>
+          </div>
+        </div>
 
-            {/* Stats Card */}
-            <div className="grid gap-4 rounded-2xl border border-white/5 bg-black/40 p-6 backdrop-blur-sm sm:grid-cols-2">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
+        {/* Part 2: Code Display */}
+        <div className="rounded-lg border border-white/10 bg-[#0a0a0f] p-6 font-mono text-sm">
+          <div className="mb-4 flex items-center gap-2">
+            <div className="h-3 w-3 rounded-full bg-red-500/80"></div>
+            <div className="h-3 w-3 rounded-full bg-yellow-500/80"></div>
+            <div className="h-3 w-3 rounded-full bg-green-500/80"></div>
+            <span className="ml-4 text-xs text-white/50">index.js</span>
+          </div>
+          <pre className="overflow-x-auto">
+            <code className="text-white/90">
+              {codeSnippet.split('\n').map((line, index) => {
+                const isComment = line.trim().startsWith('//');
+                
+                if (isComment) {
+                  return (
+                    <div key={index} className="flex min-h-6">
+                      <span className="select-none text-white/20 pr-4">{String(index + 1).padStart(2, '0')}</span>
+                      <span className="flex-1 text-gray-500">{line}</span>
+                    </div>
+                  );
+                }
+                
+                // Highlight JavaScript syntax
+                const highlightJS = (text) => {
+                  const parts = [];
+                  let remaining = text;
+                  
+                  // Extract strings first
+                  const stringRegex = /"([^"]*)"/g;
+                  const segments = [];
+                  let lastIndex = 0;
+                  let match;
+                  
+                  while ((match = stringRegex.exec(text)) !== null) {
+                    if (match.index > lastIndex) {
+                      segments.push({ type: 'code', text: text.substring(lastIndex, match.index) });
+                    }
+                    segments.push({ type: 'string', text: match[0] });
+                    lastIndex = match.index + match[0].length;
+                  }
+                  
+                  if (lastIndex < text.length) {
+                    segments.push({ type: 'code', text: text.substring(lastIndex) });
+                  }
+                  
+                  if (segments.length === 0) {
+                    segments.push({ type: 'code', text });
+                  }
+                  
+                  segments.forEach((segment, segIdx) => {
+                    if (segment.type === 'string') {
+                      parts.push(<span key={`seg-${segIdx}`} className="text-green-400">{segment.text}</span>);
+                    } else {
+                      // Highlight keywords and operators in code segments
+                      const codeParts = segment.text.split(/(\bconst\b|\breturn\b|\bfunction\b|=>|[{}[\](),:;=])/);
+                      codeParts.forEach((part, partIdx) => {
+                        if (!part) return;
+                        if (/\b(const|return|function|=>)\b/.test(part)) {
+                          parts.push(<span key={`seg-${segIdx}-part-${partIdx}`} className="text-purple-400">{part}</span>);
+                        } else if (/[{}[\](),:;=]/.test(part)) {
+                          parts.push(<span key={`seg-${segIdx}-part-${partIdx}`} className="text-cyan-400">{part}</span>);
+                        } else {
+                          parts.push(<span key={`seg-${segIdx}-part-${partIdx}`}>{part}</span>);
+                        }
+                      });
+                    }
+                  });
+                  
+                  return parts.length > 0 ? parts : [text];
+                };
+                
                 return (
-                  <div key={index} className="space-y-1 rounded-lg border border-white/5 bg-white/5 p-4">
-                    <Icon className="h-5 w-5 text-cyan-400 mb-2" />
-                    <p className="text-xs font-medium uppercase tracking-wider text-cyan-400/70">
-                      {stat.label}
-                    </p>
-                    <p className="text-2xl font-bold text-white sm:text-3xl">
-                      {stat.value.includes("+") || (!isNaN(parseInt(stat.value)) && stat.value.length < 10) ? (
-                        <AnimatedNumber value={stat.value} />
-                      ) : (
-                        <span className="text-sm sm:text-base">{stat.value}</span>
-                      )}
-                    </p>
+                  <div key={index} className="flex min-h-6">
+                    <span className="select-none text-white/20 pr-4">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="flex-1 whitespace-pre">{highlightJS(line)}</span>
                   </div>
                 );
               })}
-            </div>
-          </div>
+            </code>
+          </pre>
         </div>
       </section>
 
