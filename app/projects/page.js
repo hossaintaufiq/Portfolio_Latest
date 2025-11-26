@@ -444,40 +444,37 @@ const projectSections = [
 function ProjectCard({ project }) {
   return (
     <article
-      className="relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 // Subtle border is crucial
-                 bg-black/30 // KEY CHANGE: Solid black with 30% opacity
+      className="relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10
+                 bg-black/30
                  shadow-lg transition-all duration-300 ease-in-out
                  hover:scale-[1.02] hover:border-cyan-400/20 hover:shadow-cyan-400/10
                  group"
     >
       {/* Top Section: Thumbnail and Links */}
       <div
-        className="relative h-48 w-full overflow-hidden rounded-t-xl
-                   bg-gradient-to-br from-purple-800/60 via-blue-800/60 to-indigo-800/60 // GLOSSY THUMBNAIL GRADIENT (with more opacity)
-                   border-b border-white/10" // Added a subtle bottom border for separation
+        className="relative h-40 w-full overflow-hidden rounded-t-xl sm:h-48
+                   bg-gradient-to-br from-purple-800/60 via-blue-800/60 to-indigo-800/60
+                   border-b border-white/10"
       >
         {project.thumbnail && (
           <Image
             src={project.thumbnail}
             alt={`${project.name} Thumbnail`}
-            // 🛑 New: Add the 'fill' prop to fix the Next.js error
             fill
-            // 🛑 Updated: Use object-contain (or object-cover)
-            // 🛑 Removed: h-full w-full (handled by 'fill')
             className="object-contain transition-transform duration-300 group-hover:scale-105"
           />
         )}
 
-        <div className="absolute top-4 right-4 flex gap-3 z-10">
+        <div className="absolute top-3 right-3 flex gap-2 z-10 sm:top-4 sm:right-4 sm:gap-3">
           {project.githubLink && (
             <a
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white/15 text-white/90 hover:bg-white/25 hover:text-white transition-colors duration-200" // Slightly more prominent hover
+              className="p-1.5 rounded-full bg-white/15 text-white/90 hover:bg-white/25 hover:text-white transition-colors duration-200 sm:p-2"
               aria-label="GitHub Repository"
             >
-              <FaGithub size={20} />
+              <FaGithub size={16} className="sm:w-5 sm:h-5" />
             </a>
           )}
           {project.liveLink && project.liveLink !== "#" && (
@@ -485,31 +482,31 @@ function ProjectCard({ project }) {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white/15 text-white/90 hover:bg-white/25 hover:text-white transition-colors duration-200" // Slightly more prominent hover
+              className="p-1.5 rounded-full bg-white/15 text-white/90 hover:bg-white/25 hover:text-white transition-colors duration-200 sm:p-2"
               aria-label="Live Website"
             >
-              <FaExternalLinkAlt size={20} />
+              <FaExternalLinkAlt size={16} className="sm:w-5 sm:h-5" />
             </a>
           )}
         </div>
       </div>
 
       {/* Bottom Section: Details and Tags */}
-      <div className="flex flex-col flex-grow p-6 space-y-4">
-        <h3 className="text-2xl font-semibold tracking-tight text-white ">
+      <div className="flex flex-col flex-grow p-4 space-y-3 sm:p-6 sm:space-y-4">
+        <h3 className="text-lg font-semibold tracking-tight text-white sm:text-xl md:text-2xl">
           {project.name}
         </h3>
-        <p className="text-base text-white/70 flex-grow">{project.summary}</p>
+        <p className="text-sm text-white/70 flex-grow sm:text-base">{project.summary}</p>
 
         {/* Technologies (Tags with random coloring) */}
         {project.technologies && project.technologies.length > 0 && (
-          <div className="mt-auto flex flex-wrap gap-2 pt-4 border-t border-white/5">
+          <div className="mt-auto flex flex-wrap gap-1.5 pt-3 border-t border-white/5 sm:gap-2 sm:pt-4">
             {project.technologies.map((tech, index) => {
               const { bg, text } = getRandomTagColor();
               return (
                 <span
                   key={tech + index}
-                  className={`rounded-full px-3 py-1 text-xs font-medium ${bg} ${text}`}
+                  className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${bg} ${text} sm:px-3 sm:py-1 sm:text-xs`}
                 >
                   #{tech.toLowerCase().replace(/[^a-z0-9]/g, "")}
                 </span>
@@ -525,39 +522,34 @@ function ProjectCard({ project }) {
 // --- Main ProjectsPage Component (Fixed) ---
 export default function ProjectsPage() {
   return (
-    <div className="space-y-16  md:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-16 max-w-7xl mx-auto">
       {/* Header */}
-      <section className="space-y-6 text-center">
-        {" "}
-        {/* Removed text-center from section */}
-        <h1 className="text-5xl font-extrabold tracking-tight text-white">
+      <section className="space-y-4 sm:space-y-6 text-center">
+        <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
           Projects
         </h1>
-        <p className="max-w-3xl text-lg text-white/70 justify-center mx-auto">
-          {" "}
-          {/* Removed justify-center mx-auto */}A selection of full-stack, AI,
-          and research projects showcasing my work across machine learning, data
+        <p className="max-w-3xl text-sm text-white/70 mx-auto sm:text-base md:text-lg">
+          A selection of full-stack, AI, and research projects showcasing my work across machine learning, data
           analysis, and scalable web application development. Each project
           reflects a balance between innovation, technical precision, and
           practical impact.
         </p>
       </section>
 
-      {/* Projects Grid (UNCOMMENTED AND FIXED) */}
-      <div className="space-y-12">
+      {/* Projects Grid */}
+      <div className="space-y-10 sm:space-y-12">
         {projectSections.map((section) => (
-          <section key={section.category} className="space-y-8">
-            <div className="flex flex-col gap-2">
-              <h2 className="text-4xl font-bold tracking-tight text-white">
+          <section key={section.category} className="space-y-6 sm:space-y-8">
+            <div className="flex flex-col gap-1.5 sm:gap-2">
+              <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
                 {section.category}
               </h2>
-              <p className="text-md uppercase tracking-[0.3em] text-cyan-400/80">
+              <p className="text-xs uppercase tracking-[0.3em] text-cyan-400/80 sm:text-sm">
                 SELECTED WORK
               </p>
             </div>
-            <hr className="border-white/50" />{" "}
-            {/* Added class for visibility */}
-            <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <hr className="border-white/50" />
+            <div className="grid gap-6 sm:gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {section.items.map((item) => (
                 <ProjectCard key={item.id} project={item} />
               ))}
@@ -567,11 +559,11 @@ export default function ProjectsPage() {
       </div>
 
       {/* Footer Note */}
-      <section className="rounded-xl border border-white/10 bg-[#0F1016] p-8 text-center">
-        <h2 className="text-3xl font-semibold tracking-tight text-white">
+      <section className="rounded-xl border border-white/10 bg-[#0F1016] p-6 text-center sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
           Want to learn more about a specific project?
         </h2>
-        <p className="mt-3 text-lg text-white/70">
+        <p className="mt-2 sm:mt-3 text-sm text-white/70 sm:text-base md:text-lg">
           Detailed case studies, architecture diagrams, and code samples are
           available upon request for collaboration or professional review.
         </p>

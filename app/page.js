@@ -282,30 +282,30 @@ developer.build("Your Next Project");`;
       </section>
 
       {/* What I Do Section */}
-      <section className="space-y-8">
+      <section className="space-y-6 sm:space-y-8">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
             What I Do
           </h2>
-          <p className="mt-2 text-base text-white/60">
+          <p className="mt-2 text-sm text-white/60 sm:text-base">
             Showcasing my core expertise and services
           </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {whatIDo.map((service) => {
             const Icon = service.icon;
             return (
               <article
                 key={service.title}
-                className="group flex h-full flex-col rounded-xl border border-white/5 bg-white/5 p-6 transition-all duration-300 hover:border-cyan-500/30 hover:bg-white/10"
+                className="group flex h-full flex-col rounded-xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all duration-300 hover:border-cyan-500/30 hover:bg-white/10"
               >
-                <div className="mb-4 rounded-lg bg-white/5 p-3 w-fit">
-                  <Icon className="h-6 w-6 text-cyan-400" />
+                <div className="mb-3 sm:mb-4 rounded-lg bg-white/5 p-2.5 sm:p-3 w-fit">
+                  <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-cyan-400" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-base font-bold text-white mb-2 sm:text-lg">
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-white/70">
+                <p className="text-xs leading-relaxed text-white/70 sm:text-sm">
                   {service.description}
                 </p>
               </article>
@@ -315,32 +315,32 @@ developer.build("Your Next Project");`;
       </section>
 
       {/* Featured Projects Section */}
-      <section className="space-y-8">
+      <section className="space-y-6 sm:space-y-8">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
               Featured Projects
             </h2>
-            <p className="mt-2 text-base text-white/60">
+            <p className="mt-2 text-sm text-white/60 sm:text-base">
               Showcasing innovation in AI, full-stack, and mobile development
             </p>
           </div>
           <Link 
             href="/projects" 
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 transition hover:text-cyan-300"
+            className="group inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 transition hover:text-cyan-300 sm:text-sm"
           >
             View All Projects
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featuredProjects.map((project) => {
             return (
               <article
                 key={project.title}
                 className="group flex h-full flex-col overflow-hidden rounded-xl border border-white/5 bg-white/5 transition-all duration-300 hover:border-cyan-500/30"
               >
-                <div className="relative h-40 w-full overflow-hidden">
+                <div className="relative h-32 w-full overflow-hidden sm:h-40">
                   <Image
                     src={project.thumbnail}
                     alt={project.title}
@@ -350,11 +350,11 @@ developer.build("Your Next Project");`;
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 </div>
                 
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-lg font-bold text-white mb-2">
+                <div className="flex flex-1 flex-col p-4 sm:p-5">
+                  <h3 className="text-base font-bold text-white mb-1.5 sm:mb-2 sm:text-lg">
                     {project.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-white/70">
+                  <p className="text-xs leading-relaxed text-white/70 sm:text-sm">
                     {project.description}
                   </p>
                 </div>
@@ -365,63 +365,63 @@ developer.build("Your Next Project");`;
       </section>
 
       {/* About Me Section */}
-      <section className="rounded-2xl border border-white/5 bg-white/5 p-10 sm:p-12">
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      <section className="rounded-xl sm:rounded-2xl border border-white/5 bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12">
+        <div className="space-y-3 sm:space-y-4">
+          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
             About Me
           </h2>
-          <div className="space-y-3 max-w-3xl">
-            <p className="text-base leading-relaxed text-white/80 sm:text-lg">
+          <div className="space-y-2.5 sm:space-y-3 max-w-3xl">
+            <p className="text-sm leading-relaxed text-white/80 sm:text-base lg:text-lg">
               I am a full-stack developer and AI researcher passionate about building products that impact people&apos;s lives.
             </p>
-            <p className="text-base leading-relaxed text-white/80 sm:text-lg">
+            <p className="text-sm leading-relaxed text-white/80 sm:text-base lg:text-lg">
               Currently pursuing CSE at NSU and leading my startup Neptune Software Solutions.
             </p>
-            <p className="text-base leading-relaxed text-white/80 sm:text-lg">
+            <p className="text-sm leading-relaxed text-white/80 sm:text-base lg:text-lg">
               I love working on ML projects, complex system design, and production-ready applications.
             </p>
           </div>
           <Link
             href="/about"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 transition hover:text-cyan-300"
+            className="group inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 transition hover:text-cyan-300 sm:text-sm"
           >
             Read Full About Page
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       </section>
 
       {/* Research Work Section */}
-      <section className="space-y-8">
+      <section className="space-y-6 sm:space-y-8">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
               Research Work
             </h2>
-            <p className="mt-2 text-base text-white/60">
+            <p className="mt-2 text-sm text-white/60 sm:text-base">
               Exploring cutting-edge AI and ML technologies
             </p>
           </div>
           <Link 
             href="/research" 
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 transition hover:text-cyan-300"
+            className="group inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 transition hover:text-cyan-300 sm:text-sm"
           >
             View All Research
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {researchAreas.map((area) => {
             const Icon = area.icon;
             return (
               <article
                 key={area.title}
-                className="rounded-xl border border-white/5 bg-white/5 p-6 transition-all duration-300 hover:border-cyan-500/30 hover:bg-white/10"
+                className="rounded-xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all duration-300 hover:border-cyan-500/30 hover:bg-white/10"
               >
-                <div className="mb-4 rounded-lg bg-white/5 p-3 w-fit">
-                  <Icon className="h-5 w-5 text-cyan-400" />
+                <div className="mb-3 sm:mb-4 rounded-lg bg-white/5 p-2.5 sm:p-3 w-fit">
+                  <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400" />
                 </div>
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-base font-bold text-white sm:text-lg">
                   {area.title}
                 </h3>
               </article>
@@ -431,27 +431,27 @@ developer.build("Your Next Project");`;
       </section>
 
       {/* Tech Stack Section */}
-      <section className="space-y-8">
+      <section className="space-y-6 sm:space-y-8">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
             Tech Stack
           </h2>
-          <p className="mt-2 text-base text-white/60">
+          <p className="mt-2 text-sm text-white/60 sm:text-base">
             Technologies and tools I work with
           </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {Object.entries(techStack).map(([category, technologies]) => (
             <div
               key={category}
-              className="rounded-xl border border-white/5 bg-white/5 p-6"
+              className="rounded-xl border border-white/5 bg-white/5 p-4 sm:p-6"
             >
-              <h3 className="mb-3 text-base font-bold text-white">{category}</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="mb-2.5 sm:mb-3 text-sm font-bold text-white sm:text-base">{category}</h3>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-md border border-cyan-500/20 bg-cyan-500/10 px-3 py-1.5 text-xs font-medium text-cyan-300 transition-all duration-300 hover:border-cyan-500/30 hover:bg-cyan-500/20"
+                    className="rounded-md border border-cyan-500/20 bg-cyan-500/10 px-2 py-1 text-[10px] font-medium text-cyan-300 transition-all duration-300 hover:border-cyan-500/30 hover:bg-cyan-500/20 sm:px-3 sm:py-1.5 sm:text-xs"
                   >
                     {tech}
                   </span>
@@ -463,38 +463,38 @@ developer.build("Your Next Project");`;
       </section>
 
       {/* Contact Me Section */}
-      <section className="rounded-2xl border border-white/5 bg-white/5 p-10 text-center sm:p-12">
+      <section className="rounded-xl sm:rounded-2xl border border-white/5 bg-white/5 p-6 text-center sm:p-8 md:p-10 lg:p-12">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
             Let&apos;s build something amazing together.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base lg:text-lg">
             Ready to collaborate on your next project? Get in touch!
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
+              className="group inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-2.5 text-xs font-semibold text-white transition-all duration-300 hover:scale-105 sm:px-6 sm:py-3 sm:text-sm"
             >
-              <Mail className="h-4 w-4" />
+              <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               Email
             </Link>
             <a
               href="https://www.linkedin.com/in/hossain-taufiq/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-2.5 text-xs font-semibold text-white transition-all duration-300 hover:bg-white/10 sm:px-6 sm:py-3 sm:text-sm"
             >
-              <Linkedin className="h-4 w-4" />
+              <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               LinkedIn
             </a>
             <a
               href="https://github.com/hosain-taufiq"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-500/20"
+              className="inline-flex items-center gap-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-5 py-2.5 text-xs font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-500/20 sm:px-6 sm:py-3 sm:text-sm"
             >
-              <Github className="h-4 w-4" />
+              <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               GitHub
             </a>
           </div>
